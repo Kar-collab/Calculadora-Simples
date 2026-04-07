@@ -6,7 +6,7 @@ on:
     # Será executado quando houver um push (envio de código)
     push:
         # Especificamente na branch chamada "main"
-        branches: [ "main" ]
+        branches: [main]
     # Será executado também quando houver abertura ou atualização de Pull Requests
     pull_request:
 
@@ -20,9 +20,9 @@ jobs:
 # Lista de passos (steps) que serão executados dentro do job
       steps:
     # Primeiro passo: nome descritivo da ação
-    - name: Checkout do código
+        - name: Checkout do código
       # Action oficial do GitHub que baixa/copia o código do repositório
-      uses: actions/checkout@v4
+          uses: actions/checkout@v4
 
     # Segundo passo
     - name: Setup Node
