@@ -1,46 +1,19 @@
-# Nome do workflow que aparecerá no GitHub Actions
 name: CI Pipeline
-
-# Define quando o pipeline será executado
 on:
-    # Será executado quando houver um push (envio de código)
   push:
-        # Especificamente na branch chamada "main"
     branches: [main]
-    # Será executado também quando houver abertura ou atualização de Pull Requests
   pull_request:
-
-# Define os jobs (tarefas) que serão executados
 jobs:
-    # Nome do job: "build"
   build:
-        # Define o sistema operacional que rodará o job
     runs-on: ubuntu-latest
-
-# Lista de passos (steps) que serão executados dentro do job
     steps:
-    # Primeiro passo: nome descritivo da ação
       - name: Checkout do código
-      # Action oficial do GitHub que baixa/copia o código do repositório
-      uses: actions/checkout@v4
-
-    # Segundo passo
+        uses: actions/checkout@v4
       - name: Setup Node
-      # Action que instala/configura o Node.js no ambiente
-      uses: actions/setup-node@v4
-      # Parâmetros adicionais da action
-      with:
-          # Define a versão do Node.js que será instalada (versão 20)
-        node-version: '20'
-
-    # Terceiro passo
-    - name: Instalar dependências
-      # Comando shell que será executado
-      run: npm install
-      # Este comando lê o arquivo package.json e instala todas as dependências necessárias
-
-    # Quarto passo
-    - name: Rodar testes
-      # Executa os testes automatizados do projeto
-      run: npm test
-      # Este comando normalmente executa o script "test" definido no package.json
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar dependências
+        run: npm install
+      - name: Rodar testes
+        run: npm test
