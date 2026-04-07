@@ -18,7 +18,7 @@ jobs:
         runs-on: ubuntu-latest
 
 # Lista de passos (steps) que serão executados dentro do job
-steps:
+      steps:
     # Primeiro passo: nome descritivo da ação
     - name: Checkout do código
       # Action oficial do GitHub que baixa/copia o código do repositório
